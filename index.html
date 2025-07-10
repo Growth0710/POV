@@ -99,3 +99,16 @@
     <footer>© 2025 SOLIX Inc. All rights reserved.</footer>
   </body>
 </html>
+
+<button onclick="handleClick()">지금 시작하기</button>
+
+<script>
+  function handleClick() {
+    mixpanel.track("시작하기 버튼 클릭");
+    
+    // 200ms 후 다른 페이지로 이동
+    setTimeout(function () {
+      window.location.href = "about.html"; // 이동할 페이지
+    }, 200);
+  }
+</script>
