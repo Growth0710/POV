@@ -89,16 +89,16 @@
         }
       })(document,window.mixpanel||[]);
       mixpanel.init("ac437f22af20603cbad5199d69e9af92"); // Mixpanel token 넣기
-      mixpanel.track("페이지 무한 로딩중");
+      mixpanel.track("다음 페이지 버튼 클");
     </script>
   </head>
   <body>
     <h1>SOLIX</h1>
     <p>데이터의 빛을 비추다.</p>
-    <button onclick="handleClick()">지금 시작하기</button>
+    <button onclick="handleClick()">다음 페이지</button>
     <script>
   function handleClick() {
-    mixpanel.track("시작하기 버튼 클릭");
+    mixpanel.track("홈으로 돌아가기 클릭");
     
     // 200ms 후 다른 페이지로 이동
     setTimeout(function () {
