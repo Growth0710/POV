@@ -71,39 +71,6 @@
   </form>
   <p><a href="login.html">이미 계정이 있으신가요? 로그인하기</a></p>
 
-  <script>
-    function handleSignup(event) {
-      event.preventDefault();
-      const id = document.getElementById("new-id").value;
-      const pw = document.getElementById("new-pw").value;
-      const checkPw = document.getElementById("check-pw").value;
-      const error = document.getElementById("error-msg");
-
-      // 가상의 존재하는 아이디 리스트 (여기선 'admin'만 존재한다고 가정)
-      const existingIds = ["admin"];
-      if (existingIds.includes(id)) {
-        alert("이미 존재하는 아이디입니다.");
-        mixpanel.track("회원가입 실패", {reason: "중복 아이디",id});
-        return;
-      }
-      else {
-        alert("사용 가능한 아이디입니다.");
-      }
-      
-      if (pw !== checkPw) {
-        error.textContent = "비밀번호가 일치하지 않습니다.";
-        error.style.display = "block";
-        mixpanel.track("회원가입 실패", {reason: "비밀번호 불일치",id});
-        return;
-      }
-
-      error.style.display = "none";
-      alert("회원가입이 완료되었습니다!");
-      mixpanel.track("회원가입 완료",{id});
-      window.location.href = "index.html"; // 또는 로그인 페이지로 보내도 OK
-    }
-  </script>
-  
      <script type="text/javascript">
       (function(f,b){
         if(!b.__SV){
@@ -144,6 +111,38 @@
       mixpanel.init("ac437f22af20603cbad5199d69e9af92");
       mixpanel.track("signup 페이지");
       
+  </script>
+  <script>
+    function handleSignup(event) {
+      event.preventDefault();
+      const id = document.getElementById("new-id").value;
+      const pw = document.getElementById("new-pw").value;
+      const checkPw = document.getElementById("check-pw").value;
+      const error = document.getElementById("error-msg");
+
+      // 가상의 존재하는 아이디 리스트 (여기선 'admin'만 존재한다고 가정)
+      const existingIds = ["admin"];
+      if (existingIds.includes(id)) {
+        alert("이미 존재하는 아이디입니다.");
+        mixpanel.track("회원가입 실패", {reason: "중복 아이디",id});
+        return;
+      }
+      else {
+        alert("사용 가능한 아이디입니다.");
+      }
+      
+      if (pw !== checkPw) {
+        error.textContent = "비밀번호가 일치하지 않습니다.";
+        error.style.display = "block";
+        mixpanel.track("회원가입 실패", {reason: "비밀번호 불일치",id});
+        return;
+      }
+
+      error.style.display = "none";
+      alert("회원가입에 성공했습니다!");
+      mixpanel.track("회원가입 성공",{id});
+      window.location.href = "index.html"; // 또는 로그인 페이지로 보내도 OK
+    }
   </script>
 </body>
 </html>
