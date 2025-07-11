@@ -103,18 +103,24 @@
       })(document,window.mixpanel||[]);
       mixpanel.init("ac437f22af20603cbad5199d69e9af92"); // Mixpanel token 넣기
       mixpanel.track("Next Page");
-      mixpanel.track("exlore-btn");
+      
     </script>
   </head>
   <body>
     <h1>POV</h1>
     <p>연습의 새로운 길을 열다.</p>
     <div class="button group">
-    <button class="Next-btn" onclick="handleClick()">다음 페이지</button>
-    <button class="explore-btn" onclick="handleClick()">둘러보기</button>
+    <button class="Next-btn" onclick="goNext()">다음 페이지</button>
+    <button class="explore-btn" onclick="goExplore()">둘러보기</button>
     <script>
-  function handleClick() {
-    mixpanel.track("Home Button");
+  function gonNext() {
+    mixpanel.track("다음 페이지");
+    window.location.href = "about.html"
+    }
+  function goExplore() {
+    mixpanel.track("둘러보기");
+    window.location.href = "Explore.html"
+    }
     
     // 200ms 후 다른 페이지로 이동
     setTimeout(function () {
