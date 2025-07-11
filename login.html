@@ -15,6 +15,36 @@
         justify-content: center;
         height: 100vh;
         text-align: center;
+
+        .login-form {
+          display: flex;
+          flex-direction: column;
+          width: 300px;
+          gap: 1em;
+          margin-top: 2em;
+          }
+
+        .login-form input {
+          padding: 0.8em;
+          border: none;
+          border-radius: 6px;
+          font-size: 1em;
+          }
+
+        .login-form button {
+          background-color: #00ffff;
+          color: #0a0f1c;
+          font-size: 1em;
+          padding: 0.8em;
+          border: none;
+          border-radius: 8px;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+          }
+
+.login-form button:hover {
+  background-color: #00dddd;
+}
       }
       a {
         color: #00ffff;
@@ -27,6 +57,11 @@
     <h1>로그인 페이지 구현</h1>
     <p>진짜 성공했나요?</p>
     <a href="index.html">← 첫 페이지로 돌아가기</a>
+    <form class="login-form" onsubmit="handleLogin(event)">
+      <input type="text" placeholder="아이디" required />
+      <input type="password" placeholder="비밀번호" required />
+      <button type="sumbit">로그인</button>
+    </form>
     
     <!-- ✅ 여기에 Mixpanel SDK 삽입 -->
     <script type="text/javascript">
@@ -68,6 +103,25 @@
       })(document,window.mixpanel||[]);
       mixpanel.init("ac437f22af20603cbad5199d69e9af92");
       mixpanel.track("login 페이지");
+      
+      function handleLogin(event) {
+      event.preventDefault(); // 기본 제출 막기
+      const inputs = document.querySelectorAll(".login-form input");
+      const id = inputs[0].value;
+      const pw = inputs[1].value;
+
+      // 콘솔 확인
+      console.log("ID:", id, "PW:", pw);
+
+      // Mixpanel로 트래킹
+      mixpanel.track("로그인 시도", {
+      id: id
+      });
+
+      // 원하는 동작 추가 가능 (예: 로그인 성공 후 이동)
+      alert("로그인 성공! 메인으로 이동합니다.");
+      window.location.href = "index.html";
+      }
     </script>
   </body>
 </html>
