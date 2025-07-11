@@ -1,0 +1,36 @@
+<!-- Explore.html -->
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>POV 둘러보기</title>
+    <style>
+      body {
+        background-color: #0a0f1c;
+        color: white;
+        font-family: 'Outfit', sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        text-align: center;
+      }
+      a {
+        color: #999999;
+        text-decoration: none;
+        margin-top: 2rem;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>👋 POV 연습 내용 둘러보기 </h1>
+    <p>이 페이지는 둘러보기 클릭 후 도착하는 페이지입니다.</p>
+    <a href="index.html">← 메인으로 돌아가기</a>
+  </body>
+</html>
+
+<script>
+  mixpanel.init("ac437f22af20603cbad5199d69e9af92");
+  mixpanel.track("Explore 페이지");
+</script>
