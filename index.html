@@ -113,11 +113,12 @@
     <button class="Next-btn" onclick="goNext()">다음 페이지</button>
     <button class="explore-btn" onclick="goExplore()">둘러보기</button>
     <script>
-  function gonNext() {
+ 
+    function gonNext() {
     mixpanel.track("다음 페이지");
     window.location.href = "about.html"
     }
-  function goExplore() {
+    function goExplore() {
     mixpanel.track("둘러보기");
     window.location.href = "Explore.html"
     }
