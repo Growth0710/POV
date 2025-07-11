@@ -158,8 +158,7 @@
       return;
       }
       
-      // 가상의 존재하는 아이디 리스트 (여기선 'admin'만 존재한다고 가정)
-      const existingIds = ["admin"];
+      // 가상의 존재하는 아이디 리스트 ('admin','guest')
       if (existingIds.includes(id)) {
         idCheckMsg.textContent = "이미 존재하는 아이디입니다.";
         idCheckMsg.className = "error";
