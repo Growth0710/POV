@@ -1,0 +1,52 @@
+<!-- localStorage.html -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>LocalStorage 데이터 보기</title>
+  <style>
+    body {
+      font-family: 'Outfit', sans-serif;
+      background-color: #f0f0f0;
+      padding: 2rem;
+      color: #333;
+    }
+
+    button {
+      margin: 1rem 0.5rem 1rem 0;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 6px;
+      background-color: #00cccc;
+      color: white;
+      cursor: pointer;
+    }
+
+    pre {
+      background: #fff;
+      padding: 1rem;
+      border-radius: 6px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+  <h1>🧠 LocalStorage 유저 데이터</h1>
+  <button onclick="showUsers()">👁 유저 보기</button>
+  <button onclick="clearUsers()">🧹 유저 초기화</button>
+  <pre id="output">여기에 유저 정보가 표시됩니다</pre>
+
+  <script>
+    function showUsers() {
+      const users = JSON.parse(localStorage.getItem("users")) || [];
+      document.getElementById("output").textContent = JSON.stringify(users, null, 2);
+    }
+
+    function clearUsers() {
+      localStorage.removeItem("users");
+      document.getElementById("output").textContent = "🧼 유저 정보가 모두 삭제되었습니다.";
+    }
+  </script>
+</body>
+</html>
