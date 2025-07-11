@@ -61,9 +61,8 @@
     </style>
   </head>
   <body>
-    <h1>로그인 페이지 구현</h1>
-    <p>진짜 성공했나요?</p>
-    <a href="index.html">← 첫 페이지로 돌아가기</a>
+    <h1>로그인 페이지</h1>
+    
     <form class="login-form" onsubmit="handleLogin(event)">
       <input type="text" placeholder="아이디" required />
       <input type="password" placeholder="비밀번호" required />
@@ -72,6 +71,7 @@
       <p class="error" id="error-message">아이디 또는 비밀번호가 틀렸습니다.</p>
     </form>
     
+    <a href="index.html">← 첫 페이지로 돌아가기</a>
     <!-- ✅ 여기에 Mixpanel SDK 삽입 -->
     <script type="text/javascript">
       (function(f,b){
