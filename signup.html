@@ -189,6 +189,7 @@
         idCheckMsg.className = "error";
         idCheckMsg.style.display = "block";
         mixpanel.track("회원가입 실패", { reason: "중복 아이디", id });
+        alert("중복된 아이디 입니다.");
       return;
       }
       
@@ -198,7 +199,7 @@
         mixpanel.track("회원가입 실패", {reason: "비밀번호 불일치",id});
       return;
       }
-      
+
       error.style.display = "none";
       alert("회원가입에 성공했습니다!");
       mixpanel.track("회원가입 성공",{id});
