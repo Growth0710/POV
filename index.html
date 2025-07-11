@@ -39,6 +39,19 @@
         cursor: pointer;
         transition: all 0.3s ease;
       }
+      /* 시작하기 버튼 */
+      .next-btn {
+      background-color: #00ffff;
+      color: #0a0f1c;
+      }
+
+      /* 둘러보기 버튼 */
+      .explore-btn {
+      background-color: #ffcc00;
+      color: #0a0f1c;
+      }
+      
+      /* hover 공통 효과 */
       button:hover {
         background-color: #00dddd;
       }
@@ -95,7 +108,8 @@
   <body>
     <h1>POV</h1>
     <p>연습의 새로운 길을 열다.</p>
-    <button onclick="handleClick()">다음 페이지</button>
+    <button class="Next-btn" onclick="handleClick()">다음 페이지</button>
+    <button class="explore-btn" onclick="handleClick()">둘러보기</button>
     <script>
   function handleClick() {
     mixpanel.track("Home Button");
