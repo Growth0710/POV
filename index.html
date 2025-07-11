@@ -70,6 +70,24 @@
       transition: all 0.3s ease;
       }
       
+      /* 회원가입 버튼 */
+      .login-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      z-index: 10;
+      background-color: #66CC66;
+      color: #000000;
+      width: 100px;
+      height: 50px;
+      font-size: 0.7em;
+      padding: 0.5em 1.4em;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      }
+      
       /* hover 공통 효과 */
       button:hover {
         background-color: #00dddd;
@@ -90,6 +108,7 @@
     <button class="next-btn" onclick="goNext()">다음 페이지</button>
     <button class="explore-btn" onclick="goExplore()">둘러보기</button>
     <button class="login-btn" onclick="gologin()">로그인</button>
+    <button class="signup-btn" onclick="gosigup()">회원가입</button>
     </div>
     
     <footer>© 2022 SOLIX Inc. All rights reserved.</footer>
@@ -140,8 +159,7 @@
     setTimeout(() => {
     window.location.href = "about.html";
     }, 200);
-  }
-    
+    }
     function goExplore() {
     mixpanel.track("explore 페이지");
     setTimeout(() => {
@@ -154,6 +172,13 @@
     window.location.href = "login.html";
     }, 200);
     }
+    function gosignup() {
+    mixpanel.track("signup 페이지");
+    setTimeout(() => {
+    window.location.href = "signup.html";
+    }, 200);
+    }
+      
     </script>
   </body>
 </html>
