@@ -110,25 +110,27 @@
     <h1>POV</h1>
     <p>연습의 새로운 길을 열다.</p>
     <div class="button group">
-    <button class="Next-btn" onclick="goNext()">다음 페이지</button>
+    <button class="next-btn" onclick="goNext()">다음 페이지</button>
     <button class="explore-btn" onclick="goExplore()">둘러보기</button>
-    
+
+    <footer>© 2022 SOLIX Inc. All rights reserved.</footer>
+
     <script>
     function goNext() {
     mixpanel.track("다음 페이지");
+    setTimeout(() => {
     window.location.href = "about.html"
-    }
-    function goExplore() {
-    mixpanel.track("둘러보기");
-    window.location.href = "Explore.html"
-    }
-  
-    // 200ms 후 다른 페이지로 이동
-    setTimeout(function () {
-      window.location.href = "about.html"; // 이동할 페이지
     }, 200);
   }
-    <footer>© 2022 SOLIX Inc. All rights reserved.</footer>
+    
+    function goExplore() {
+    mixpanel.track("둘러보기");
+    setTimeout(() => {
+    window.location.href = "Explore.html"
+    }, 200);
+  }
+  
+    
     </script>
   </body>
 </html>
