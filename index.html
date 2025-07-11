@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta name="description" content="SOLIX - 데이터의 빛을 비추다."/>
-    <title>SOLIX | 데이터 분석의 새로운 기준</title>
+    <meta name="description" content="POV - 연습의 새로운 길을 열다."/>
+    <title>Pratice Over View | 데이터 분석의 새로운 기준</title>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet"/>
     <style>
       body {
@@ -89,16 +89,16 @@
         }
       })(document,window.mixpanel||[]);
       mixpanel.init("ac437f22af20603cbad5199d69e9af92"); // Mixpanel token 넣기
-      mixpanel.track("다음 페이지 버튼 클릭");
+      mixpanel.track("다음 페이지");
     </script>
   </head>
   <body>
-    <h1>SOLIX</h1>
-    <p>데이터의 빛을 비추다.</p>
+    <h1>POV</h1>
+    <p>연습의 새로운 길을 열다.</p>
     <button onclick="handleClick()">다음 페이지</button>
     <script>
   function handleClick() {
-    mixpanel.track("홈으로 돌아가기 클릭");
+    mixpanel.track("Home button");
     
     // 200ms 후 다른 페이지로 이동
     setTimeout(function () {
