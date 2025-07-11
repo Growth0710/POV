@@ -181,6 +181,7 @@
       const pw = document.getElementById("new-pw").value;
       const checkPw = document.getElementById("check-pw").value;
       const error = document.getElementById("error-msg");
+      const existingIds = ["admin", "guest"];
       
       if (pw !== checkPw) {
         error.textContent = "비밀번호가 일치하지 않습니다.";
