@@ -82,12 +82,12 @@
       // 가상의 존재하는 아이디 리스트 (여기선 'admin'만 존재한다고 가정)
       const existingIds = ["admin"];
       if (existingIds.includes(id)) {
-        alert("이미 존재하는 아이디입니다.)
+        alert("이미 존재하는 아이디입니다.")
         mixpanel.track("회원가입 실패", {reason: "중복 아이디",id});
         return;
       }
-      else (existingIds.includes(id)) {
-        alert("사용 가능한 아이디입니다.)
+      else {
+        alert("사용 가능한 아이디입니다.")
       }
       
       if (pw !== checkPw) {
@@ -99,10 +99,11 @@
 
       error.style.display = "none";
       alert("회원가입이 완료되었습니다!");
-      mixpanel.track("회원가입완료");
+      mixpanel.track("회원가입 완료"{id});
       window.location.href = "index.html"; // 또는 로그인 페이지로 보내도 OK
     }
-    
+  </script>
+  
      <script type="text/javascript">
       (function(f,b){
         if(!b.__SV){
