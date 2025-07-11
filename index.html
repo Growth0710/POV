@@ -26,7 +26,7 @@
       }
       p {
         font-size: 1.2em;
-        color: #cccccc;
+        color: #00ffff;
         margin-bottom: 2em;
       }
       button {
@@ -89,7 +89,7 @@
         }
       })(document,window.mixpanel||[]);
       mixpanel.init("ac437f22af20603cbad5199d69e9af92"); // Mixpanel token 넣기
-      mixpanel.track("다음 페이지");
+      mixpanel.track("Next Page");
     </script>
   </head>
   <body>
@@ -98,7 +98,7 @@
     <button onclick="handleClick()">다음 페이지</button>
     <script>
   function handleClick() {
-    mixpanel.track("Home button");
+    mixpanel.track("Home Button");
     
     // 200ms 후 다른 페이지로 이동
     setTimeout(function () {
