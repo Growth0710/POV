@@ -1,0 +1,73 @@
+<!-- login.html -->
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>로그인 페이지</title>
+    <style>
+      body {
+        background-color: #663300;
+        color: white;
+        font-family: 'Outfit', sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        text-align: center;
+      }
+      a {
+        color: #00ffff;
+        text-decoration: none;
+        margin-top: 2rem;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>로그인 페이지 구현</h1>
+    <p>진짜 성공했나요?</p>
+    <a href="index.html">← 첫 페이지로 돌아가기</a>
+    
+    <!-- ✅ 여기에 Mixpanel SDK 삽입 -->
+    <script type="text/javascript">
+      (function(f,b){
+        if(!b.__SV){
+          var e,g,i,h;
+          window.mixpanel=b;
+          b._i=[];
+          b.init=function(e,f,c){
+            function g(a,d){
+              var b=d.split(".");
+              2==b.length&&(a=a[b[0]],d=b[1]);
+              a[d]=function(){
+                a.push([d].concat(Array.prototype.slice.call(arguments,0)))
+              }
+            }
+            var a=b;
+            "undefined"!==typeof c?a=b[c]=[]:c="mixpanel";
+            a.people=a.people||[];
+            a.toString=function(a){
+              var d="mixpanel";
+              "mixpanel"!==c&&(d+="."+c);
+              a||(d+=" (stub)");
+              return d
+            };
+            a.people.toString=function(){return a.toString(1)+".people (stub)"};
+            i="disable time_event track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config reset people.set people.set_once people.unset people.increment people.append people.union people.track_charge people.clear_charges people.delete_user".split(" ");
+            for(h=0;h<i.length;h++)g(a,i[h]);
+            b._i.push([e,f,c])
+          };
+          b.__SV=1.2;
+          e=f.createElement("script");
+          e.type="text/javascript";
+          e.async=!0;
+          e.src="https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";
+          g=f.getElementsByTagName("script")[0];
+          g.parentNode.insertBefore(e,g)
+        }
+      })(document,window.mixpanel||[]);
+      mixpanel.init("ac437f22af20603cbad5199d69e9af92");
+      mixpanel.track("login 페이지");
+    </script>
+  </body>
+</html>
