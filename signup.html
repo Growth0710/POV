@@ -152,7 +152,16 @@
       const checkPw = document.getElementById("check-pw").value;
       const error = document.getElementById("error-msg");
       const idCheckMsg = document.getElementById("id-check-msg");
-
+      const idCheckMsg = document.getElementById("id-check-msg");
+      const existingIds = ["admin", "guest"]; // 가상의 중복된 아이디 목록
+      
+      if (!id) {
+        idCheckMsg.textContent = "아이디를 입력해주세요.";
+        idCheckMsg.className = "error";
+        idCheckMsg.style.display = "block";
+      return;
+      }
+      
       // 가상의 존재하는 아이디 리스트 (여기선 'admin'만 존재한다고 가정)
       const existingIds = ["admin"];
       if (existingIds.includes(id)) {
@@ -164,6 +173,7 @@
         idCheckMsg.textContent = "사용 가능한 아이디입니다.";
         idCheckMsg.className = "success";
         idCheckMsg.style.display = "block";
+        mixpanel.track("아이디 중복 체크", { id, result: "사용 가능" });
       }
       
       if (pw !== checkPw) {
