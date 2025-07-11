@@ -144,16 +144,12 @@
       mixpanel.track("signup 페이지");
       
   </script>
+  
   <script>
-    function handleSignup(event) {
-      event.preventDefault();
+    function checkDuplicate() {
       const id = document.getElementById("new-id").value;
-      const pw = document.getElementById("new-pw").value;
-      const checkPw = document.getElementById("check-pw").value;
-      const error = document.getElementById("error-msg");
       const idCheckMsg = document.getElementById("id-check-msg");
-      const idCheckMsg = document.getElementById("id-check-msg");
-      const existingIds = ["admin", "guest"]; // 가상의 중복된 아이디 목록
+      const existingIds = ["admin", "guest"];
       
       if (!id) {
         idCheckMsg.textContent = "아이디를 입력해주세요.";
@@ -165,8 +161,11 @@
       // 가상의 존재하는 아이디 리스트 (여기선 'admin'만 존재한다고 가정)
       const existingIds = ["admin"];
       if (existingIds.includes(id)) {
-        alert("이미 존재하는 아이디입니다.");
-        mixpanel.track("회원가입 실패", {reason: "중복 아이디",id});
+        idCheckMsg.textContent = "이미 존재하는 아이디입니다.";
+        idCheckMsg.className = "error";
+        idCheckMsg.style.display = "block";
+        mixpanel.track("아이디 중복 체크", { id, result: "중복" });
+      
         return;
       }
       else {
@@ -175,14 +174,22 @@
         idCheckMsg.style.display = "block";
         mixpanel.track("아이디 중복 체크", { id, result: "사용 가능" });
       }
+    }
+     
+    function handleSignup(event) {
+      event.preventDefault();
+      const id = document.getElementById("new-id").value;
+      const pw = document.getElementById("new-pw").value;
+      const checkPw = document.getElementById("check-pw").value;
+      const error = document.getElementById("error-msg");
       
       if (pw !== checkPw) {
         error.textContent = "비밀번호가 일치하지 않습니다.";
         error.style.display = "block";
         mixpanel.track("회원가입 실패", {reason: "비밀번호 불일치",id});
-        return;
+      return;
       }
-
+      
       error.style.display = "none";
       alert("회원가입에 성공했습니다!");
       mixpanel.track("회원가입 성공",{id});
