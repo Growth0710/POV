@@ -105,7 +105,7 @@
     </style>
   </head>
   
-  <body>
+  <body id="index-body">
     <h1>POV</h1>
     <p>연습의 새로운 길을 열다.</p>
     <div class="button-group">
@@ -157,6 +157,13 @@
       })(document,window.mixpanel||[]);
       mixpanel.init("ac437f22af20603cbad5199d69e9af92"); // Mixpanel token 넣기
       mixpanel.track("첫화면 페이지");
+
+    const colors = ["#FFDDC1", "#C1FFD7", "#C1E1FF", "#FFFAC1", "#F0C1FF", "#D1C1FF", "#FFE3C1"];
+
+    const randomIndex = Math.floor(Math.random() * colors.length);
+    const randomColor = colors[randomIndex];
+
+    document.getElementById("index-body").style.backgroundColor = randomColor;
       
     function goabout() {
     mixpanel.track("다음 페이지");
