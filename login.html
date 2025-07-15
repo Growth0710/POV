@@ -129,9 +129,13 @@
 
       if (matchedUser) {
         alert("로그인 완료!");
+        // 로그인 유지를 원할 경우 여기서 상태 저장 가능
+        localStorage.setItem("loggedInUser", id);
         window.location.href = "index.html";
-      } else {
+      } 
+      else {
         errorMessage.style.display = "block";
+        mixpanel.track("로그인 실패", { id });
       }
     }
   </script>
