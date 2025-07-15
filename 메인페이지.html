@@ -19,34 +19,22 @@
       text-align: center;
     }
 
-    .logout-btn {
+    .button-group {
+      display: flex;
+      gap: 1rem;
       margin-top: 2rem;
-      padding: 0.8em 1.5em;
-      background-color: #ff6666;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      font-size: 1em;
-      cursor: pointer;
+      justify-content: center;
     }
-
-    .next-btn {
-      margin-top: 2rem;
-      padding: 0.8em 1.5em;
-      background-color: #ff6666;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      font-size: 1em;
-      cursor: pointer;
-    }
+    
   </style>
 </head>
 <body>
   <h1 id="welcome-message">로그인 확인 중...</h1>
+  <div class="button-group">
   <button class="logout-btn" onclick="logout()">로그아웃</button>
   <button class="next-btn" onclick="next()">다음 페이지</button>
-
+  </div>
+  
  <script type="text/javascript">
     (function(f, b) {
       if (!b.__SV) {
