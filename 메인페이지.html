@@ -29,6 +29,17 @@
       font-size: 1em;
       cursor: pointer;
     }
+
+    .next-btn {
+      margin-top: 2rem;
+      padding: 0.8em 1.5em;
+      background-color: #ff6666;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1em;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
@@ -79,6 +90,7 @@
     mixpanel.track("메인 페이지");
   </script>
   <script>
+    // 로그인 체크
     document.addEventListener("DOMContentLoaded", function(){
     const user = localStorage.getItem("loggedInUser");
     
@@ -89,17 +101,18 @@
     else {
       document.getElementById("welcome-message").textContent = `${user}님, ㅎㅇㅇ`;
     }
-
-    function() {
+    });
+    // 다음 페이지 이동 함수
+    function next() {
       window.location.href = "duplicate.html";
-      
+    }
+    // 로그아웃 함수
     window.logout = function() {
       mixpanel.track("로그아웃");
       localStorage.removeItem("loggedInUser");
       alert("로그아웃 되었습니다.");
       window.location.href = "index.html";
-    };
-    });
+    }
   </script>
 </body>
 </html>
