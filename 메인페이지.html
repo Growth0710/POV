@@ -81,17 +81,17 @@
   
   <script>
     const user = localStorage.getItem("loggedInUser");
-
-    mixpanel.track("로그아웃",{ id });
     
     if (!user) {
       alert("로그인이 필요합니다.");
       window.location.href = "login.html";
-    } else {
+    } 
+    else {
       document.getElementById("welcome-message").textContent = `${user}님, ㅎㅇㅇ`;
     }
 
     function logout() {
+      mixpanel.track("로그아웃",{ id: user });
       localStorage.removeItem("loggedInUser");
       alert("로그아웃 되었습니다.");
       window.location.href = "index.html";
