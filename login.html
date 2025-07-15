@@ -1,141 +1,139 @@
-<!-- login.html -->
 <!DOCTYPE html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <title>로그인 페이지</title>
-    <style>
-      body {
-        background-color: #663300;
-        color: white;
-        font-family: 'Outfit', sans-serif;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        height: 100vh;
-        text-align: center;
+<head>
+  <meta charset="UTF-8" />
+  <title>로그인 페이지</title>
+  <style>
+    body {
+      background-color: #663300;
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
 
-        .login-form {
-          display: flex;
-          flex-direction: column;
-          width: 300px;
-          gap: 1em;
-          margin-top: 2em;
-          }
+    .login-form {
+      display: flex;
+      flex-direction: column;
+      width: 300px;
+      gap: 1em;
+      margin-top: 2em;
+    }
 
-        .login-form input {
-          padding: 0.8em;
-          border: none;
-          border-radius: 6px;
-          font-size: 1em;
-          }
+    .login-form input {
+      padding: 0.8em;
+      border: none;
+      border-radius: 6px;
+      font-size: 1em;
+    }
 
-        .login-form button {
-          background-color: #00ffff;
-          color: #0a0f1c;
-          font-size: 1em;
-          padding: 0.8em;
-          border: none;
-          border-radius: 8px;
-          cursor: pointer;
-          transition: background-color 0.3s ease;
-          }
-        
-        .error {
-          color : #ff6666;
-          margin-top: 0.5em;
-          font-size: 0.9em;
-          display: none;
-          }
+    .login-form button {
+      background-color: #00ffff;
+      color: #0a0f1c;
+      font-size: 1em;
+      padding: 0.8em;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
 
-.login-form button:hover {
-  background-color: #00dddd;
-}
-      }
-      a {
-        color: #00ffff;
-        text-decoration: none;
-        margin-top: 2rem;
-      }
-    </style>
-  </head>
-  <body>
-    <h1>로그인 페이지</h1>
-    
-    <form class="login-form" onsubmit="handleLogin(event)">
-      <input type="text" placeholder="아이디" required />
-      <input type="password" placeholder="비밀번호" required />
-      <button type="submit">로그인</button>
-      <p><a href="signup.html">계정이 없으신가요? 회원가입하기</a></p>
-      <p class="error" id="error-message">아이디 또는 비밀번호가 틀렸습니다.</p>
-    </form>
-    <a href="index.html"> 메인 페이지로 돌아가기</a>
-    
-    <!-- ✅ 여기에 Mixpanel SDK 삽입 -->
-    <script type="text/javascript">
-      (function(f,b){
-        if(!b.__SV){
-          var e,g,i,h;
-          window.mixpanel=b;
-          b._i=[];
-          b.init=function(e,f,c){
-            function g(a,d){
-              var b=d.split(".");
-              2==b.length&&(a=a[b[0]],d=b[1]);
-              a[d]=function(){
-                a.push([d].concat(Array.prototype.slice.call(arguments,0)))
-              }
+    .login-form button:hover {
+      background-color: #00dddd;
+    }
+
+    .error {
+      color: #ff6666;
+      margin-top: 0.5em;
+      font-size: 0.9em;
+      display: none;
+    }
+
+    a {
+      color: #00ffff;
+      text-decoration: none;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>로그인 페이지</h1>
+  <form class="login-form" onsubmit="handleLogin(event)">
+    <input type="text" id="login-id" placeholder="아이디" required />
+    <input type="password" id="login-pw" placeholder="비밀번호" required />
+    <button type="submit">로그인</button>
+    <p class="error" id="error-message">아이디 또는 비밀번호가 틀렸습니다.</p>
+  </form>
+  <p><a href="signup.html">계정이 없으신가요? 회원가입하기</a></p>
+  <a href="index.html">메인 페이지로 돌아가기</a>
+
+  <!-- Mixpanel SDK -->
+  <script type="text/javascript">
+    (function(f, b) {
+      if (!b.__SV) {
+        var e, g, i, h;
+        window.mixpanel = b;
+        b._i = [];
+        b.init = function(e, f, c) {
+          function g(a, d) {
+            var b = d.split(".");
+            2 == b.length && (a = a[b[0]], d = b[1]);
+            a[d] = function() {
+              a.push([d].concat(Array.prototype.slice.call(arguments, 0)))
             }
-            var a=b;
-            "undefined"!==typeof c?a=b[c]=[]:c="mixpanel";
-            a.people=a.people||[];
-            a.toString=function(a){
-              var d="mixpanel";
-              "mixpanel"!==c&&(d+="."+c);
-              a||(d+=" (stub)");
-              return d
-            };
-            a.people.toString=function(){return a.toString(1)+".people (stub)"};
-            i="disable time_event track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config reset people.set people.set_once people.unset people.increment people.append people.union people.track_charge people.clear_charges people.delete_user".split(" ");
-            for(h=0;h<i.length;h++)g(a,i[h]);
-            b._i.push([e,f,c])
+          }
+          var a = b;
+          "undefined" !== typeof c ? a = b[c] = [] : c = "mixpanel";
+          a.people = a.people || [];
+          a.toString = function(a) {
+            var d = "mixpanel";
+            "mixpanel" !== c && (d += "." + c);
+            a || (d += " (stub)");
+            return d
           };
-          b.__SV=1.2;
-          e=f.createElement("script");
-          e.type="text/javascript";
-          e.async=!0;
-          e.src="https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";
-          g=f.getElementsByTagName("script")[0];
-          g.parentNode.insertBefore(e,g)
-        }
-      })(document,window.mixpanel||[]);
-      mixpanel.init("ac437f22af20603cbad5199d69e9af92");
-      mixpanel.track("login 페이지");
-      
-      function handleLogin(event) {
-      event.preventDefault(); // 기본 제출 막기
-      const inputs = document.querySelectorAll(".login-form input");
-      const id = inputs[0].value;
-      const pw = inputs[1].value;
-
-      // 콘솔 확인
-      console.log("ID:", id, "PW:", pw);
-
-      // Mixpanel로 트래킹
-      mixpanel.track("로그인 시도", {
-      id: id
-      });
-
-      // 임시 로그인 검증 (예: id: admin / pw:1234)
-        if (id === "admin" && pw === "1234") {
-        alert("로그인 완료");
-        window.location.href = "index.html";
-        }
-        else {
-          document.getElementById("error-message").style.display = "block";
-        }
+          a.people.toString = function() {
+            return a.toString(1) + ".people (stub)"
+          };
+          i = "disable time_event track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config reset people.set people.set_once people.unset people.increment people.append people.union people.track_charge people.clear_charges people.delete_user".split(" ");
+          for (h = 0; h < i.length; h++) g(a, i[h]);
+          b._i.push([e, f, c])
+        };
+        b.__SV = 1.2;
+        e = f.createElement("script");
+        e.type = "text/javascript";
+        e.async = !0;
+        e.src = "https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";
+        g = f.getElementsByTagName("script")[0];
+        g.parentNode.insertBefore(e, g)
       }
-    </script>
-  </body>
+    })(document, window.mixpanel || []);
+    mixpanel.init("ac437f22af20603cbad5199d69e9af92");
+    mixpanel.track("로그인 페이지");
+
+    function handleLogin(event) {
+      event.preventDefault();
+
+      const id = document.getElementById("login-id").value;
+      const pw = document.getElementById("login-pw").value;
+      const errorMessage = document.getElementById("error-message");
+
+      const users = JSON.parse(localStorage.getItem("users")) || [];
+
+      const matchedUser = users.find(user => user.id === id && user.password === pw);
+
+      mixpanel.track("로그인 시도", { id });
+
+      if (matchedUser) {
+        alert("로그인 완료!");
+        window.location.href = "index.html";
+      } else {
+        errorMessage.style.display = "block";
+      }
+    }
+  </script>
+</body>
 </html>
