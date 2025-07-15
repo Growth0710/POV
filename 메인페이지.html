@@ -34,6 +34,7 @@
 <body>
   <h1 id="welcome-message">로그인 확인 중...</h1>
   <button class="logout-btn" onclick="logout()">로그아웃</button>
+  <button class="next-btn" onclick="next()">다음 페이지</button>
 
  <script type="text/javascript">
     (function(f, b) {
@@ -89,6 +90,9 @@
       document.getElementById("welcome-message").textContent = `${user}님, ㅎㅇㅇ`;
     }
 
+    function() {
+      window.location.href = "duplicate.html";
+      
     window.logout = function() {
       mixpanel.track("로그아웃");
       localStorage.removeItem("loggedInUser");
