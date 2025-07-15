@@ -76,10 +76,9 @@
     })(document, window.mixpanel || []);
     mixpanel.init("ac437f22af20603cbad5199d69e9af92");
     mixpanel.track("메인 페이지");
-    }
   </script>
-  
   <script>
+    document.addEventListener("DOMContentLoaded", function(){
     const user = localStorage.getItem("loggedInUser");
     
     if (!user) {
@@ -90,12 +89,13 @@
       document.getElementById("welcome-message").textContent = `${user}님, ㅎㅇㅇ`;
     }
 
-    function logout() {
+    window.logout = function() {
       mixpanel.track("로그아웃");
       localStorage.removeItem("loggedInUser");
       alert("로그아웃 되었습니다.");
       window.location.href = "index.html";
-    }
+    };
+    });
   </script>
 </body>
 </html>
