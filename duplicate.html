@@ -3,20 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <title>POV - 실패는 포기하는 순간이다.</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700&display=swap" rel="stylesheet">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap');
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
     body {
-      margin: 0;
-      background: linear-gradient(to bottom, #0f0f0f, #1a1a1a);
       font-family: 'Outfit', sans-serif;
+      background: linear-gradient(to bottom right, #0a0f1c, #1f2633);
       color: white;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
-      min-height: 100vh;
-      padding: 40px 20px;
+      padding: 2rem;
     }
 
     header {
@@ -25,88 +29,132 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 10px 0;
-      border-bottom: 1px solid #444;
+      padding: 1rem 0;
     }
 
-    header h1 {
+    .logo {
       font-size: 1.8rem;
-      font-weight: 800;
+      font-weight: 700;
       color: #00ffff;
     }
 
     nav a {
-      margin-left: 20px;
+      margin-left: 1.5rem;
+      color: #ccc;
       text-decoration: none;
-      color: #fff;
-      font-weight: 600;
-      transition: color 0.2s ease;
+      transition: color 0.3s;
     }
 
     nav a:hover {
       color: #00ffff;
     }
 
-    .hero {
+    main {
       text-align: center;
-      margin-top: 60px;
-      max-width: 800px;
+      margin-top: 5rem;
     }
 
-    .hero h2 {
-      font-size: 2.5rem;
-      margin-bottom: 20px;
+    .title {
+      font-size: 3rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
     }
 
-    .hero p {
+    .subtitle {
       font-size: 1.2rem;
-      line-height: 1.6;
-      color: #ccc;
+      color: #aaa;
+      margin-bottom: 2rem;
     }
 
-    .cta-btn {
-      margin-top: 30px;
-      padding: 14px 32px;
-      font-size: 1rem;
+    .cta-button {
       background-color: #00ffff;
-      color: black;
+      color: #0a0f1c;
+      font-size: 1rem;
+      font-weight: bold;
+      padding: 1rem 2rem;
       border: none;
-      border-radius: 8px;
+      border-radius: 10px;
       cursor: pointer;
-      transition: background-color 0.2s ease;
+      transition: background-color 0.3s;
     }
 
-    .cta-btn:hover {
+    .cta-button:hover {
       background-color: #00dddd;
     }
 
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+      margin-top: 4rem;
+    }
+
+    .card {
+      background-color: #222b3a;
+      border-radius: 12px;
+      padding: 2rem;
+      width: 280px;
+      text-align: left;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card h3 {
+      color: #00ffff;
+      margin-bottom: 0.8rem;
+    }
+
+    .card p {
+      color: #ccc;
+      font-size: 0.95rem;
+      line-height: 1.4;
+    }
+
     footer {
-      margin-top: auto;
-      padding: 20px 0;
-      color: #888;
+      margin-top: 5rem;
+      color: #666;
       font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>POV</h1>
+    <div class="logo">POV</div>
     <nav>
-      <a href="#about">소개</a>
-      <a href="#explore">둘러보기</a>
-      <a href="login.html">로그인</a>
-      <a href="signup.html">회원가입</a>
+      <a href="#">소개</a>
+      <a href="#">기능</a>
+      <a href="#">시작하기</a>
     </nav>
   </header>
 
-  <section class="hero">
-    <h2>실패는 포기하는 순간이다.</h2>
-    <p>POV는 여러분의 도전을 응원합니다.<br />지금 시작해서 미래를 바꿔보세요.</p>
-    <button class="cta-btn" onclick="location.href='signup.html'">지금 시작하기</button>
-  </section>
+  <main>
+    <div class="title">실패는 포기하는 순간이다.</div>
+    <div class="subtitle">매일 조금씩, 꾸준히 나아가는 당신을 위한 POV 프로젝트</div>
+    <button class="cta-button" onclick="alert('준비 중입니다!')">지금 시작하기</button>
+
+    <div class="card-container">
+      <div class="card">
+        <h3>데일리 트래킹</h3>
+        <p>매일 당신의 노력을 기록하고 시각화해보세요. 데이터는 당신을 배신하지 않아요.</p>
+      </div>
+      <div class="card">
+        <h3>목표 달성 관리</h3>
+        <p>작은 습관부터 장기 목표까지, 체계적으로 관리할 수 있어요.</p>
+      </div>
+      <div class="card">
+        <h3>회고와 성장</h3>
+        <p>한 주, 한 달을 돌아보며 스스로의 성장을 실감할 수 있어요.</p>
+      </div>
+    </div>
+  </main>
 
   <footer>
-    © 2025 POV. 모든 권리 보유.
+    © 2025 POV Project. 실패는 포기하는 순간이다.
   </footer>
 </body>
 </html>
