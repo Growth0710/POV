@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>POV - 실패는 포기하는 순간이다.</title>
+  <style>
+    p {
+      margin-top: 4px;
+      margin-bottom: 4px;
+    }
+    body {
+      background-color: #e6f7ff;
+      font-family: 'Outfit', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
+
+    .logout-btn {
+      margin-top: 2rem;
+      padding: 0.8em 1.5em;
+      background-color: #ff6666;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1em;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="welcome-message">로그인 확인 중...</h1>
+  <button class="logout-btn" onclick="logout()">로그아웃</button>
+
+  <script>
+    const user = localStorage.getItem("loggedInUser");
+
+    if (!user) {
+      alert("로그인이 필요합니다.");
+      window.location.href = "login.html";
+    } else {
+      document.getElementById("welcome-message").textContent = `${user}님, 환영합니다!`;
+    }
+
+    function logout() {
+      localStorage.removeItem("loggedInUser");
+      alert("로그아웃 되었습니다.");
+      window.location.href = "login.html";
+    }
+  </script>
+</body>
+</html>
