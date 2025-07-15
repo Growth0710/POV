@@ -102,6 +102,7 @@
     <p class="error" id="error-msg">비밀번호가 일치하지 않습니다</p>
   </form>
   <p><a href="login.html">이미 계정이 있으신가요? 로그인하기</a></p>
+  <p><a href="index.html">메인 페이지로 돌아가기</a></p>
 
      <script type="text/javascript">
       (function(f,b){
@@ -210,7 +211,7 @@
     users.push({ id: id, password: pw });
     localStorage.setItem("users", JSON.stringify(users));
 
-    alert("회원가입에 성공했습니다!");
+    alert("회원가입에 성공했습니다! 로그인 페이지로 이동됩니다.");
     mixpanel.track("회원가입 성공", { id });
     window.location.href = "login.html";
   }
