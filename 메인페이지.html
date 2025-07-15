@@ -91,7 +91,7 @@
     }
 
     function logout() {
-      mixpanel.track("로그아웃",{ id: user });
+      mixpanel.track("로그아웃");
       localStorage.removeItem("loggedInUser");
       alert("로그아웃 되었습니다.");
       window.location.href = "index.html";
