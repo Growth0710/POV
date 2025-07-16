@@ -1,4 +1,4 @@
-name: GitHub Pages
+name: deploy-pages
 
 on:
   push:
@@ -22,7 +22,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .
+          path: .  # HTML 파일이 루트에 있다면 그대로 유지, 그렇지 않으면 ./public 등으로 수정
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
