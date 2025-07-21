@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>POV 연습 시작</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(to right, #0f1624, #1d2b44);
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem;
+      min-height: 100vh;
+    }
+
+    h1 {
+      margin-top: 2rem;
+      font-size: 2.5rem;
+      color: #00ffff;
+    }
+
+    p {
+      color: #aaa;
+      margin-bottom: 2rem;
+    }
+
+    textarea {
+      width: 80%;
+      max-width: 700px;
+      height: 200px;
+      background-color: #1e2d3b;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      padding: 1rem;
+      font-size: 1rem;
+      resize: none;
+    }
+
+    .buttons {
+      margin-top: 1.5rem;
+      display: flex;
+      gap: 1rem;
+    }
+
+    button {
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .save-btn {
+      background-color: #00ffff;
+      color: #0a0f1c;
+    }
+
+    .save-btn:hover {
+      background-color: #00dddd;
+    }
+
+    .reset-btn {
+      background-color: #ff6666;
+      color: white;
+    }
+
+    .reset-btn:hover {
+      background-color: #e05555;
+    }
+
+    footer {
+      margin-top: auto;
+      color: #666;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>매일의 연습을 기록해보세요</h1>
+  <p>작은 반복이 큰 변화를 만듭니다. 오늘 당신의 연습을 남겨보세요.</p>
+  <textarea id="practiceArea" placeholder="예: 오늘 한 시간 동안 책 읽음, 타자연습 500타 달성..."></textarea>
+  <div class="buttons">
+    <button class="save-btn" onclick="savePractice()">저장</button>
+    <button class="reset-btn" onclick="resetPractice()">초기화</button>
+  </div>
+  <footer>© 2025 POV Project</footer>
+
+  <script>
+    function savePractice() {
+      const content = document.getElementById("practiceArea").value;
+      if (content.trim() === "") {
+        alert("내용을 입력해주세요!");
+        return;
+      }
+      localStorage.setItem("practiceNote", content);
+      alert("연습 내용이 저장되었습니다!");
+    }
+
+    function resetPractice() {
+      document.getElementById("practiceArea").value = "";
+    }
+
+    // 페이지 로드 시 저장된 내용 불러오기
+    window.onload = function() {
+      const saved = localStorage.getItem("practiceNote");
+      if (saved) {
+        document.getElementById("practiceArea").value = saved;
+      }
+    };
+  </script>
+</body>
+</html>
