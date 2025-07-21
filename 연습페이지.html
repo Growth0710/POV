@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>POV 연습 시작</title>
-   <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
 
-      gtag('config', 'G-KL1C11H3ZT');
-    </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KL1C11H3ZT"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-KL1C11H3ZT');
+  </script>
+  
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
   <style>
     body {
@@ -98,46 +102,49 @@
   </div>
   <footer>© 2025 POV Project</footer>
 
- <script type="text/javascript">
-      (function(f,b){
-        if(!b.__SV){
-          var e,g,i,h;
-          window.mixpanel=b;
-          b._i=[];
-          b.init=function(e,f,c){
-            function g(a,d){
-              var b=d.split(".");
-              2==b.length&&(a=a[b[0]],d=b[1]);
-              a[d]=function(){
-                a.push([d].concat(Array.prototype.slice.call(arguments,0)))
-              }
+  <!-- Mixpanel SDK -->
+  <script type="text/javascript">
+    (function(f,b){
+      if(!b.__SV){
+        var e,g,i,h;
+        window.mixpanel=b;
+        b._i=[];
+        b.init=function(e,f,c){
+          function g(a,d){
+            var b=d.split(".");
+            2==b.length&&(a=a[b[0]],d=b[1]);
+            a[d]=function(){
+              a.push([d].concat(Array.prototype.slice.call(arguments,0)))
             }
-            var a=b;
-            "undefined"!==typeof c?a=b[c]=[]:c="mixpanel";
-            a.people=a.people||[];
-            a.toString=function(a){
-              var d="mixpanel";
-              "mixpanel"!==c&&(d+="."+c);
-              a||(d+=" (stub)");
-              return d
-            };
-            a.people.toString=function(){return a.toString(1)+".people (stub)"};
-            i="disable time_event track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config reset people.set people.set_once people.unset people.increment people.append people.union people.track_charge people.clear_charges people.delete_user".split(" ");
-            for(h=0;h<i.length;h++)g(a,i[h]);
-            b._i.push([e,f,c])
+          }
+          var a=b;
+          "undefined"!==typeof c?a=b[c]=[]:c="mixpanel";
+          a.people=a.people||[];
+          a.toString=function(a){
+            var d="mixpanel";
+            "mixpanel"!==c&&(d+="."+c);
+            a||(d+=" (stub)");
+            return d
           };
-          b.__SV=1.2;
-          e=f.createElement("script");
-          e.type="text/javascript";
-          e.async=!0;
-          e.src="https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";
-          g=f.getElementsByTagName("script")[0];
-          g.parentNode.insertBefore(e,g)
-        }
-      })(document,window.mixpanel||[]);
-      mixpanel.init("ac437f22af20603cbad5199d69e9af92"); // Mixpanel token 넣기
-      mixpanel.track("연습 페이지");
-  
+          a.people.toString=function(){return a.toString(1)+".people (stub)"};
+          i="disable time_event track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config reset people.set people.set_once people.unset people.increment people.append people.union people.track_charge people.clear_charges people.delete_user".split(" ");
+          for(h=0;h<i.length;h++)g(a,i[h]);
+          b._i.push([e,f,c])
+        };
+        b.__SV=1.2;
+        e=f.createElement("script");
+        e.type="text/javascript";
+        e.async=!0;
+        e.src="https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";
+        g=f.getElementsByTagName("script")[0];
+        g.parentNode.insertBefore(e,g)
+      }
+    })(document,window.mixpanel||[]);
+    mixpanel.init("ac437f22af20603cbad5199d69e9af92");
+    mixpanel.track("연습 페이지 진입");
+  </script>
+
+  <!-- 기능 스크립트 -->
   <script>
     function savePractice() {
       const content = document.getElementById("practiceArea").value;
@@ -153,8 +160,7 @@
       document.getElementById("practiceArea").value = "";
     }
 
-    // 페이지 로드 시 저장된 내용 불러오기
-    window.onload = function() {
+    window.onload = function () {
       const saved = localStorage.getItem("practiceNote");
       if (saved) {
         document.getElementById("practiceArea").value = saved;
